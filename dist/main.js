@@ -115,7 +115,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconst scorecard = [\n    { name: \"Ali\", score: \"100\" },\n    { name: \"Marcus\", score: \"96\" },\n    { name: \"Broad\", score: \"89\" },\n    { name: \"Paul\", score: \"88\" },\n];\n\nfunction renderLeaderboard() {\n  const scoreboardElement = document.getElementById('scoreboard');\n  scoreboardElement.innerHTML = '';\n\n  for (let i = 0; i < scorecard.length; i++) {\n    const listItem = document.createElement('li');\n    listItem.textContent = `${scorecard[i].name} - ${scorecard[i].score}`;\n    \n    // Add appropriate IDs and classes to the list items\n    listItem.setAttribute('id', `player-${i + 1}`);\n    listItem.classList.add('player-item');\n\n    scoreboardElement.appendChild(listItem);\n  }\n}\n\n// Call the function to initially render the leaderboard\nrenderLeaderboard();\n\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_scorelist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scorelist */ \"./src/modules/scorelist.js\");\n\n\n\nfunction renderLeaderboard() {\n  const scoreboardElement = document.getElementById('scoreboard');\n  scoreboardElement.innerHTML = '';\n\n  for (let i = 0; i < _modules_scorelist__WEBPACK_IMPORTED_MODULE_1__[\"default\"].length; i += 1) {\n    const listItem = document.createElement('li');\n    listItem.textContent = `${_modules_scorelist__WEBPACK_IMPORTED_MODULE_1__[\"default\"][i].name} - ${_modules_scorelist__WEBPACK_IMPORTED_MODULE_1__[\"default\"][i].score}`;\n\n    // Add appropriate IDs and classes to the list items\n    listItem.setAttribute('id', `player-${i + 1}`);\n    listItem.classList.add('player-item');\n\n    scoreboardElement.appendChild(listItem);\n  }\n}\n\n// Call the function to initially render the leaderboard\nrenderLeaderboard();\n\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/scorelist.js":
+/*!**********************************!*\
+  !*** ./src/modules/scorelist.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scorecard = [\r\n    { name: 'Ali', score: '100' },\r\n    { name: 'Marcus', score: '96' },\r\n    { name: 'Broad', score: '89' },\r\n    { name: 'Paul', score: '88' },\r\n  ];\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scorecard);\n\n//# sourceURL=webpack://leaderboard/./src/modules/scorelist.js?");
 
 /***/ })
 
