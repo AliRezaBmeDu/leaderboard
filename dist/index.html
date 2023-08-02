@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
-</head>
+<script defer src="runtime.js"></script><script defer src="main.js"></script></head>
 <body>
     <header>
         <h1>Leaderboard</h1>
@@ -12,9 +12,9 @@
 
     <div class="grid-container">
         <div class="left-section">
-            <div class="recent-score">
+            <div>
                 <h2>Recent Scores</h2>
-                <button>Refresh</button>
+                <button>refresh</button>
             </div>
 
             <ul id="scoreboard">
@@ -24,9 +24,8 @@
 
         <div class="right-section">
             <h2>Add your score</h2>
-            <input type="text" placeholder="Your Name">
-            <input type="text" placeholder="Your Score">
-            <button id="submitBtn">Submit</button>
+            <input type="text">
+            <input type="text">
         </div>
     </div>
     
