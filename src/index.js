@@ -4,6 +4,7 @@ import scorecard from './modules/scorelist';
 const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 let gameId = null;
 
+//Function for creating a new Game
 const createNewGame = async () => {
     try{
         const response = await fetch(`${baseUrl}/games/`, {
@@ -24,6 +25,25 @@ const createNewGame = async () => {
     }
 }
 
+//Function to get all the scores of the created game
+const getScores = async () => {
+    try{
+        if(!gameId){
+            console.error('The Game is not created yet');
+            return
+        }
+        const response =  await fetch(`${baseUrl}/games/${gameId}/scores/`);
+        const data = await response.json();
+        scorecard.push(data.result);
+    }
+    catch (error) {
+        console.error('Error fetching scores:', error)
+    }
+}
+
+
+
+//Function for rendering the scoreboard
 function renderLeaderboard() {
   const scoreboardElement = document.getElementById('scoreboard');
   scoreboardElement.innerHTML = '';
@@ -41,7 +61,10 @@ function renderLeaderboard() {
 }
 
 // Call the function to create a new game when the page loads
-createNewGame();
+if(!gameId){
+    createNewGame();
+}
+
 
 // Call the function to initially render the leaderboard
 renderLeaderboard();
