@@ -41,6 +41,28 @@ const getScores = async () => {
     }
 }
 
+// Function to save a new score for the game created by you
+const saveScore = async (user, score) => {
+    try {
+      if (!gameId) {
+        console.error('No game is created yet.');
+        return;
+      }
+  
+      const response = await fetch(`${baseUrl}/games/${gameId}/scores/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user, score }),
+      });
+  
+      const data = await response.json();
+      console.log('Score saved:', data);
+    } catch (error) {
+      console.error('Error saving score:', error);
+    }
+  };
 
 
 //Function for rendering the scoreboard
