@@ -1,10 +1,9 @@
 const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
-var scorecard = [];
-export let gameId = null || localStorage.getItem('gameID');
+let scorecard = [];
+let gameId = null || localStorage.getItem('gameID');
 
-
-//Function for rendering the scoreboard
-const renderLeaderboard = async() => {
+// Function for rendering the scoreboard
+const renderLeaderboard = async () => {
   const scoreboardElement = document.getElementById('scoreboard');
   scoreboardElement.innerHTML = '';
   scorecard.sort((a, b) => b.score - a.score);
@@ -19,54 +18,49 @@ const renderLeaderboard = async() => {
 
     scoreboardElement.appendChild(listItem);
   }
-}
+};
 
+// Function for creating a new Game
+export const createNewGame = async () => {
+  try {
+    const response = await fetch(`${baseUrl}/games/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: 'My cool game' }),
+    });
+    console.log('data', response);
+    const data = await response.json();
+    gameId = data.result;
 
-
-//Function for creating a new Game
-export const createNewGame = async() => {
-  try{
-      const response = await fetch(`${baseUrl}/games/`, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ name: 'My cool game' })
-      });
-      console.log('data', response);
-      const data = await response.json();
-      gameId = data.result;
-
-      console.log(`Game created with ID: ${gameId}`);
-      localStorage.setItem('gameID', gameId);
+    console.log(`Game created with ID: ${gameId}`);
+    localStorage.setItem('gameID', gameId);
+  } catch (error) {
+    console.error('Error creating a new game:', error);
   }
-  catch (error) {
-      console.error('Error creating a new game:', error);
-  }
-}
+};
 
-//Function to get all the scores of the created game
+// Function to get all the scores of the created game
 export const getScores = async () => {
-  try{
-      const response =  await fetch(`${baseUrl}/games/${gameId}/scores/`);
-      const data = await response.json();
+  try {
+    const response = await fetch(`${baseUrl}/games/${gameId}/scores/`);
+    const data = await response.json();
 
-      console.log('getScoresData',data)
+    console.log('getScoresData', data);
 
-      scorecard = await data.result;
-      console.log('scorecard:',scorecard);
+    scorecard = await data.result;
+    console.log('scorecard:', scorecard);
 
-      renderLeaderboard();
+    renderLeaderboard();
+  } catch (error) {
+    console.error('Error fetching scores:', error);
   }
-  catch (error) {
-      console.error('Error fetching scores:', error)
-  }
-}
+};
 
 // Function to save a new score for the game created by you
 export const saveScore = async (user, score) => {
   try {
-  
     const response = await fetch(`${baseUrl}/games/${gameId}/scores/`, {
       method: 'POST',
       headers: {
