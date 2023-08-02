@@ -2,16 +2,16 @@ import './style.css';
 
 const scorecard = [
   { name: 'Ali', score: '100' },
-  { name: 'Jacob', score: '97' },
-  { name: 'Isac', score: '89' },
-  { name: 'Freddy', score: '88' },
+  { name: 'Marcus', score: '96' },
+  { name: 'Broad', score: '89' },
+  { name: 'Paul', score: '88' },
 ];
 
 function renderLeaderboard() {
   const scoreboardElement = document.getElementById('scoreboard');
   scoreboardElement.innerHTML = '';
 
-  for (let i = 0; i < scorecard.length; i++) {
+  for (let i = 0; i < scorecard.length; i += 1) {
     const listItem = document.createElement('li');
     listItem.textContent = `${scorecard[i].name} - ${scorecard[i].score}`;
 
