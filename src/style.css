@@ -49,8 +49,9 @@ header {
   padding: 0.125rem 0.625rem;
   border: none;
   cursor: pointer;
-  @media screen and (max-width:537px){
-    height: 1.7 rem;
+
+  @media screen and (max-width: 537px) {
+    height: 1.7rem;
     margin: 0.8rem;
     margin-right: 0;
   }
@@ -125,7 +126,7 @@ header {
   cursor: pointer;
 }
 
-/*Style the footer section*/
+/* Style the footer section */
 footer {
   border-top: 2px solid;
   margin-top: auto;
