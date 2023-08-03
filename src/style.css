@@ -49,6 +49,11 @@ header {
   padding: 0.125rem 0.625rem;
   border: none;
   cursor: pointer;
+  @media screen and (max-width:537px){
+    height: 1.7 rem;
+    margin: 0.8rem;
+    margin-right: 0;
+  }
 }
 
 /* Style the recent scores list */
