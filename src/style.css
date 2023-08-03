@@ -70,6 +70,7 @@ header {
 
 .player-item:first-child{
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
 /* Style the right section */

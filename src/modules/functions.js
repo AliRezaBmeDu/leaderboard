@@ -1,6 +1,6 @@
 const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
 let scorecard = [];
-let gameId = null || localStorage.getItem('gameID');
+export const gameId = 'Game with ID: wzJALsaAZgWF8DUFUCaY added.';
 
 // Function for rendering the scoreboard
 const renderLeaderboard = async () => {
@@ -42,6 +42,7 @@ export const createNewGame = async () => {
 // Function to get all the scores of the created game
 export const getScores = async () => {
   try {
+    console.log(`This is the url to fetch data in getScores:  ${baseUrl}/games/${gameId}/scores/`)
     const response = await fetch(`${baseUrl}/games/${gameId}/scores/`);
     const data = await response.json();
     scorecard = await data.result;

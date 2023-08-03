@@ -1,9 +1,7 @@
 import './style.css';
 import {
-  createNewGame, saveScore, getScores,
+  createNewGame, saveScore, getScores, gameId
 } from './modules/functions';
-
-const gameId = null || localStorage.getItem('gameID');
 
 if (!gameId) {
   createNewGame();
