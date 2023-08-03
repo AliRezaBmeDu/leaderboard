@@ -31,3 +31,8 @@ const handleRefreshButtonClick = () => {
 // Add event listeners to buttons
 document.getElementById('refreshBtn').addEventListener('click', handleRefreshButtonClick);
 document.getElementById('submitBtn').addEventListener('click', handleSubmitButtonClick);
+
+// Load data from the game when the page loads
+window.addEventListener('DOMContentLoaded', () => {
+  getScores();
+});

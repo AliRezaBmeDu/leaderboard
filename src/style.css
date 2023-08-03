@@ -65,6 +65,11 @@ header {
 .player-item {
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.player-item:first-child{
+  font-size: 1.2rem;
 }
 
 /* Style the right section */
