@@ -10,6 +10,12 @@ const renderLeaderboard = async () => {
   for (let i = 0; i < scorecard.length; i += 1) {
     const listItem = document.createElement('li');
     listItem.textContent = `${scorecard[i].user} - ${scorecard[i].score}`;
+    if(i===0){
+      const crown = document.createElement('i');
+      crown.classList.add('fas', 'fa-crown');
+      listItem.appendChild(crown);
+      console.log('Is it working?')
+    }
 
     // Add appropriate IDs and classes to the list items
     listItem.setAttribute('id', `player-${i + 1}`);
