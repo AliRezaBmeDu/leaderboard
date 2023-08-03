@@ -37,8 +37,6 @@ export const createNewGame = async () => {
     });
     const data = await response.json();
     gameId = data.result;
-
-    console.log(`Game created with ID: ${gameId}`);
     localStorage.setItem('gameID', gameId);
   } catch (error) {
     console.error('Error creating a new game:', error);
