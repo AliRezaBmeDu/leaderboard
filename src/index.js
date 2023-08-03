@@ -1,21 +1,33 @@
 import './style.css';
-import scorecard from './modules/scorelist';
+import {
+  createNewGame, saveScore, getScores,
+} from './modules/functions';
 
-function renderLeaderboard() {
-  const scoreboardElement = document.getElementById('scoreboard');
-  scoreboardElement.innerHTML = '';
+const gameId = null || localStorage.getItem('gameID');
 
-  for (let i = 0; i < scorecard.length; i += 1) {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${scorecard[i].name} - ${scorecard[i].score}`;
-
-    // Add appropriate IDs and classes to the list items
-    listItem.setAttribute('id', `player-${i + 1}`);
-    listItem.classList.add('player-item');
-
-    scoreboardElement.appendChild(listItem);
-  }
+if (!gameId) {
+  createNewGame();
 }
 
-// Call the function to initially render the leaderboard
-renderLeaderboard();
+// Function to submit the input
+const handleSubmitButtonClick = () => {
+  const nameInput = document.getElementById('nameInput');
+  const scoreInput = document.getElementById('scoreInput');
+  const user = nameInput.value.trim();
+  const score = Number(scoreInput.value);
+
+  saveScore(user, score);
+
+  // Clear the input fields after saving the score
+  nameInput.value = '';
+  scoreInput.value = '';
+};
+
+// Function to handle the "Refresh" button click
+const handleRefreshButtonClick = () => {
+  getScores();
+};
+
+// Add event listeners to buttons
+document.getElementById('refreshBtn').addEventListener('click', handleRefreshButtonClick);
+document.getElementById('submitBtn').addEventListener('click', handleSubmitButtonClick);
