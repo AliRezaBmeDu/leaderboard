@@ -124,3 +124,28 @@ header {
   border-radius: 0.25rem;
   cursor: pointer;
 }
+
+/*Style the footer section*/
+footer {
+  border-top: 2px solid;
+  margin-top: auto;
+  background-color: rgb(223, 228, 247);
+
+  /* Add the following Flexbox rules */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+  font-style: italic;
+  margin-bottom: 0;
+}
