@@ -59,7 +59,7 @@ export const getScores = async () => {
   }
 };
 
-// Function to save a new score for the game created by you
+// Function to save a new score for the game created
 export const saveScore = async (user, score) => {
   try {
     const response = await fetch(`${baseUrl}/games/${gameId}/scores/`, {
