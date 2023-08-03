@@ -1,7 +1,9 @@
 import './style.css';
 import {
-  createNewGame, saveScore, getScores, gameId
+  createNewGame, saveScore, getScores,
 } from './modules/functions';
+
+const gameId = 'Game with ID: wzJALsaAZgWF8DUFUCaY added.';
 
 if (!gameId) {
   createNewGame();
